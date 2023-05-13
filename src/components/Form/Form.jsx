@@ -20,7 +20,16 @@ function Form({ handleSubmit }) {
         value={address}
         onChange={(e) => setAddress(e.target.value)}
       />
-      <button type="submit" className="custom-url__button">
+      <button
+        className="custom-url__paste-button"
+        onClick={(e) => {
+          e.preventDefault();
+          navigator.clipboard.readText().then(setAddress);
+        }}
+      >
+        Paste text
+      </button>
+      <button type="submit" className="custom-url__submit-button">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"

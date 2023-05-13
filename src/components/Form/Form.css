@@ -18,7 +18,7 @@
 .custom-url__input:hover {
   box-shadow: 0 0 0 2px #7381a9;
 }
-.custom-url__button {
+.custom-url__submit-button {
   position: absolute;
   top: 0;
   right: 0;
@@ -32,7 +32,7 @@
   justify-content: center;
   color: #2a3a62;
 }
-.custom-url__button > svg {
+.custom-url__submit-button > svg {
   width: 15px;
   height: 15px;
 }
