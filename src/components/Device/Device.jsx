@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-function Device({ name = "Неизвестно" }) {
+function Device({ name = 'Неизвестно', handleClick }) {
   return (
-    <div className="device">
+    <div className="device" onClick={handleClick}>
       <div className="device__name">{name}</div>
       <div className="device__send">
         <svg
@@ -25,6 +25,7 @@ function Device({ name = "Неизвестно" }) {
 
 Device.propTypes = {
   name: PropTypes.string,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default Device;

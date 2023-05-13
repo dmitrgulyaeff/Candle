@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import './Popup.css';
 import { useEffect, useState } from 'react';
+import Device from '../Device/Device';
 
 function Popup({ setOpened }) {
   const [devices, setDevices] = useState([]);
@@ -63,7 +64,7 @@ function Popup({ setOpened }) {
     <div
       className="devices"
       onClick={(e) => {
-        if (e.target.className) {
+        if (e.target.className !== 'device') {
           console.log(e.target.className);
           handleClose();
         }
@@ -76,6 +77,38 @@ function Popup({ setOpened }) {
       </div>
 
       <div className="devices__list">
+        {socket &&
+          devices.map((device) => {
+            const { device_id, name, uid } = device;
+            return (
+              <Device
+                key={device_id}
+                socket={socket}
+                uid={uid}
+                name={name}
+                handleClick={() => {
+                  const play = {
+                    title: 'Lampa Cast',
+                    url: url,
+                  };
+
+                  socket.send(
+                    JSON.stringify({
+                      method: 'other',
+                      params: {
+                        submethod: 'play',
+                        object: {
+                          player: play,
+                          playlist: [play],
+                        },
+                      },
+                      uid: device.uid,
+                    })
+                  );
+                }}
+              />
+            );
+          })}
       </div>
     </div>
   );
