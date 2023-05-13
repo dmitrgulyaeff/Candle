@@ -3,7 +3,7 @@ import './Popup.css';
 import { useEffect, useState } from 'react';
 import Device from '../Device/Device';
 
-function Popup({ setOpened }) {
+function Popup({ setOpened, url }) {
   const [devices, setDevices] = useState([]);
   const [socket, setSocket] = useState(null);
 
@@ -88,7 +88,7 @@ function Popup({ setOpened }) {
                 name={name}
                 handleClick={() => {
                   const play = {
-                    title: 'Lampa Cast',
+                    title: 'Candle',
                     url: url,
                   };
 
@@ -105,6 +105,8 @@ function Popup({ setOpened }) {
                       uid: device.uid,
                     })
                   );
+                  
+                  handleClose();
                 }}
               />
             );
@@ -116,6 +118,7 @@ function Popup({ setOpened }) {
 
 Popup.propTypes = {
   setOpened: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default Popup;

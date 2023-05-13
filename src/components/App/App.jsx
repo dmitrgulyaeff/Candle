@@ -6,16 +6,18 @@ import Popup from '../Popup/Popup';
 
 function App() {
   const [popupOpened, setPopupOpened] = useState(false);
+  const [url, setUrl] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     setPopupOpened(true);
+    setUrl(e.target[0].value);
   };
+  
   return (
     <>
       <Header />
       <Form handleSubmit={handleSubmit} />
-      {popupOpened && <Popup setOpened={setPopupOpened} />}
+      {popupOpened && <Popup setOpened={setPopupOpened} url={url} />}
     </>
   );
 }

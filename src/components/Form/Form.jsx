@@ -1,15 +1,26 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Form.css';
 
-function Form({handleSubmit}) {
+function Form({ handleSubmit }) {
+  const [address, setAddress] = useState('');
   return (
-    <form className="custom-url" onSubmit={handleSubmit}>
+    <form
+      className="custom-url"
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit(e);
+        setAddress('');
+      }}
+    >
       <input
         className="custom-url__input"
         type="url"
         placeholder="Введите адрес видео"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
       />
-      <button type="submit" className="custom-url__button" >
+      <button type="submit" className="custom-url__button">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
@@ -29,7 +40,7 @@ function Form({handleSubmit}) {
   );
 }
 
-Form.propTypes  = {
+Form.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
 };
 
