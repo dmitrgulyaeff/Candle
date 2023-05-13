@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import './Device.scss';
 
 function Device({ name = 'Неизвестно', handleClick }) {
   return (

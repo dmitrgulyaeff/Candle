@@ -1,0 +1,29 @@
+.devices>*+* {
+  margin-top: 35px;
+}
+
+.device {
+  display: flex;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff;
+  background: #f9fbfd;
+  box-shadow: 0 10px 30px #ccd6e56b;
+  cursor: pointer;
+  position: relative;
+}
+
+.device__send {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: #7381a9;
+}
+
+.device__send>svg {
+  width: 20px;
+  height: 20px;
+}
+
+.device+.device {
+  margin-top: 15px;
+}

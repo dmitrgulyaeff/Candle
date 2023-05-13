@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import './Form.css';
+import './Form.scss';
 
 function Form({ handleSubmit }) {
   const [address, setAddress] = useState('');

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './Popup.css';
+import './Popup.scss';
 import { useEffect, useState } from 'react';
 import Device from '../Device/Device';
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './App.scss';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 import Popup from '../Popup/Popup';
