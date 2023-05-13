@@ -4,54 +4,60 @@ import { useEffect, useState } from 'react';
 
 function Popup({ setOpened }) {
   const [devices, setDevices] = useState([]);
-  const socket = new WebSocket('wss://cub.watch:8020');
+  const [socket, setSocket] = useState(null);
 
   const handleClose = () => {
-    socket.close();
+    if (socket) socket.close();
     setOpened(false);
   };
 
-  socket.onmessage = (event) => {
-    const result = JSON.parse(event.data);
-    console.log(result);
-    if (result.method === 'devices') {
-      const devices = result.data.filter((d) => Object.hasOwn(d, 'device_id'));
-      console.log(devices);
-      setDevices(devices);
-    }
-  };
-
-  socket.onclose = function (event) {
-    if (event.wasClean) {
-      console.log(
-        `[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`
-      );
-    } else {
-      console.log('[close] Соединение прервано');
-    }
-  };
-
-  const send = (method, data) => {
-    data.method = method;
-    if (socket && socket.readyState == 1) socket.send(JSON.stringify(data));
-  };
-
   useEffect(() => {
-    console.log(socket);
+    const newSocket = new WebSocket('wss://cub.watch:8020');
+    setSocket(newSocket);
 
-    let interval;
-    socket.onopen = () => {
-      send('start', {});
-      send('devices', {});
-      interval = setInterval(() => {
-        if (socket.readyState === 1) send('devices', {});
-      }, 5000);
+    newSocket.onmessage = (event) => {
+      const result = JSON.parse(event.data);
+      if (result.method === 'devices') {
+        const devices = result.data.filter((d) =>
+          Object.hasOwnProperty.call(d, 'device_id')
+        );
+        console.log(devices);
+        setDevices(devices);
+      }
+    };
+
+    newSocket.onclose = function (event) {
+      if (event.wasClean) {
+        console.log(
+          `[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`
+        );
+      } else {
+        console.log('[close] Соединение прервано');
+      }
     };
 
     return function cleanup() {
-      clearInterval(interval);
+      if (newSocket) newSocket.close;
     };
   }, []);
+
+  useEffect(() => {
+    let interval;
+    if (socket) {
+      socket.onopen = () => {
+        socket.send(JSON.stringify({ method: 'start', data: {} }));
+        socket.send(JSON.stringify({ method: 'devices', data: {} }));
+        interval = setInterval(() => {
+          if (socket.readyState === 1)
+            socket.send(JSON.stringify({ method: 'devices', data: {} }));
+        }, 5000);
+      };
+    }
+
+    return function cleanup() {
+      if (interval) clearInterval(interval);
+    };
+  }, [socket]);
 
   return (
     <div
@@ -69,7 +75,8 @@ function Popup({ setOpened }) {
         <div></div>
       </div>
 
-      <div className="devices__list"></div>
+      <div className="devices__list">
+      </div>
     </div>
   );
 }
