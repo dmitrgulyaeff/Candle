@@ -9,7 +9,7 @@ function Form({ handleSubmit }) {
       className="custom-url"
       onSubmit={(e) => {
         e.preventDefault();
-        handleSubmit(e);
+        handleSubmit(address);
         setAddress('');
       }}
     >
@@ -19,6 +19,12 @@ function Form({ handleSubmit }) {
         placeholder="Введите адрес видео"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleSubmit(address);
+            setAddress('')
+          }
+        }}
       />
       <button
         className="custom-url__paste-button"

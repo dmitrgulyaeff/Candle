@@ -8,9 +8,9 @@ function App() {
   const [popupOpened, setPopupOpened] = useState(false);
   const [url, setUrl] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (inputUrl) => {
     setPopupOpened(true);
-    setUrl(e.target[0].value);
+    setUrl(inputUrl);
   };
 
   return (
