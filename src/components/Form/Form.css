@@ -1,0 +1,89 @@
+.custom-url {
+  position: relative;
+}
+
+.custom-url__input {
+  width: 100%;
+  border: 0;
+  background: #fff;
+  border-radius: 10px;
+  height: 50px;
+  outline: none;
+  font-size: 17px;
+  padding: 0 20px;
+  padding-right: 50px;
+  box-shadow: 0 10px 30px #ccd6e56b;
+}
+.custom-url__input:focus,
+.custom-url__input:hover {
+  box-shadow: 0 0 0 2px #7381a9;
+}
+.custom-url__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  border: 0;
+  background: no-repeat;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2a3a62;
+}
+.custom-url__button > svg {
+  width: 15px;
+  height: 15px;
+}
+
+.url {
+  background: #f9fbfd;
+  display: flex;
+  box-shadow: 0 10px 30px #ccd6e56b;
+  padding: 16px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.url__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: #e0e9f7;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7381a9;
+}
+.url__icon > svg {
+  width: 15px;
+  height: 15px;
+}
+.url__body {
+  padding: 0 20px;
+  overflow: hidden;
+}
+.url__link {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.url__exe {
+  color: #a2acbb;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.url + .url {
+  margin-top: 15px;
+}
+
+.urls__empty {
+  text-align: center;
+  color: #a2acbb;
+}
+
+.url:hover {
+  background: #fff;
+}

@@ -1,0 +1,21 @@
+.head {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.head__image {
+  position: relative;
+  height: 100px;
+  aspect-ratio: 1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url('/favicon/favicon-196x196.png');
+}
+
+.head__title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 70px;
+}
