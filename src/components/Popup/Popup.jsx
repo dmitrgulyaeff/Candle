@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import './Popup.css';
 import { useEffect, useState } from 'react';
+
 function Popup({ setOpened }) {
   const [devices, setDevices] = useState([]);
   const socket = new WebSocket('wss://cub.watch:8020');
@@ -12,10 +13,21 @@ function Popup({ setOpened }) {
 
   socket.onmessage = (event) => {
     const result = JSON.parse(event.data);
+    console.log(result);
     if (result.method === 'devices') {
       const devices = result.data.filter((d) => Object.hasOwn(d, 'device_id'));
       console.log(devices);
       setDevices(devices);
+    }
+  };
+
+  socket.onclose = function (event) {
+    if (event.wasClean) {
+      console.log(
+        `[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`
+      );
+    } else {
+      console.log('[close] Соединение прервано');
     }
   };
 
@@ -25,12 +37,14 @@ function Popup({ setOpened }) {
   };
 
   useEffect(() => {
+    console.log(socket);
+
     let interval;
     socket.onopen = () => {
       send('start', {});
       send('devices', {});
       interval = setInterval(() => {
-        send('devices', {});
+        if (socket.readyState === 1) send('devices', {});
       }, 5000);
     };
 
