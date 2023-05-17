@@ -1,0 +1,23 @@
+@mixin responsive($breakpoint) {
+  @if $breakpoint =="mobile" {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint =="tablet" {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint =="desktop" {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Invalid breakpoint";
+  }
+}
