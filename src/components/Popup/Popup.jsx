@@ -76,7 +76,7 @@ function Popup({ setOpened, url }) {
         <div></div>
       </div>
 
-      <div className="devices__list">
+      <div className="wrapper devices__list">
         {socket &&
           devices.map((device) => {
             const { device_id, name, uid } = device;

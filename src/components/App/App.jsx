@@ -16,9 +16,11 @@ function App() {
 
   return (
     <>
-      <ThemeToggler />
-      <Header />
-      <Form handleSubmit={handleSubmit} />
+      <div className='wrapper'>
+        <ThemeToggler />
+        <Header />
+        <Form handleSubmit={handleSubmit} />
+      </div>
       {popupOpened && <Popup setOpened={setPopupOpened} url={url} />}
     </>
   );

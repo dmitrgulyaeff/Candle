@@ -1,4 +1,6 @@
 @import '../../mixins/themify.scss';
+@import '../../mixins/responsive.scss';
+
 
 * {
   box-sizing: border-box;
@@ -13,10 +15,27 @@
 
 #root {
   height: 100vh;
-  min-width: 320px;
+  width: 100vw;
+
   @include themify($themes) {
-    background-color: themed('backgroundColor');  
+    background-color: themed('backgroundColor');
   }
-  // display: flex;
-  // flex-direction: column;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+
+  @include responsive("mobile") {
+    min-width: 320px;
+  }
+
+  @include responsive("desktop") {
+    padding: 30px;
+  }
 }
