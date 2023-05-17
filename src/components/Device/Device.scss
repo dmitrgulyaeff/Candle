@@ -1,26 +1,38 @@
+@import '../../mixins/themify.scss';
+
 .devices>*+* {
   margin-top: 35px;
 }
 
 $height-input: 30px;
+
 .device {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px;
   border-radius: 10px;
-  background: #fff;
-  background: #f9fbfd;
-  box-shadow: 0 10px 30px #ccd6e56b;
+
   cursor: pointer;
   position: relative;
   font-size: $height-input;
+
+  @include themify($themes) {
+    background: themed('backgroundElement');
+    box-shadow: themed('shadowAccent');
+  }
 }
 
+.device__name {
+  margin-left: 3px;
+}
 .device__send {
-  color: #7381a9;
   height: $height-input;
   aspect-ratio: 1;
+
+  @include themify($themes) {
+    color: themed('textColor');
+  }
 }
 
 .device+.device {

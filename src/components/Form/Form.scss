@@ -1,3 +1,6 @@
+@import '../../mixins/themify.scss';
+
+
 .custom-url {
   display: flex;
   flex-direction: column;
@@ -9,19 +12,24 @@ $height : 50px;
 .custom-url__input {
   width: 100%;
   border: 0;
-  background: #fff;
   border-radius: 10px;
   height: $height;
   outline: none;
   font-size: 17px;
   padding: 0 20px;
   padding-right: $height;
-  box-shadow: 0 10px 30px #ccd6e56b;
+
+  @include themify($themes) {
+    background-color: themed('backgroundElement');
+    box-shadow: themed('shadowAccent');
+  }
 }
 
 .custom-url__input:focus,
 .custom-url__input:hover {
-  box-shadow: 0 0 0 2px #7381a9;
+  @include themify($themes) {
+    outline: solid 2px themed('elementActiveColor');
+  }
 }
 
 .custom-url__submit-button {
@@ -36,16 +44,18 @@ $height : 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2a3a62;
+  @include themify($themes) {
+    color: themed('textColor');
+  }
 }
 
 .custom-url__submit-button>svg {
-  width: 15px;
-  height: 15px;
-  // color: ; можно цвет стрелке задать 
+  height: 35%;
+  width: auto;
 }
 
 .custom-url__paste-button {
+  cursor: pointer;
   padding: 10px;
   align-self: flex-end;
   margin-top: 15px;
@@ -53,11 +63,16 @@ $height : 50px;
   background-color: transparent;
   border-radius: 10px;
   border: 0;
-  box-shadow: 0 5px 20px #9fa7b325;
+  @include themify($themes) {
+    background-color: themed('backgroundElement');
+    box-shadow: themed('shadowAccent');
 
+  }
 
   &:hover {
-    box-shadow: 0 5px 20px #00000025;
-    cursor: pointer;
+    @include themify($themes) {
+      outline: solid 2px themed('elementActiveColor');
+    }
+
   }
 }

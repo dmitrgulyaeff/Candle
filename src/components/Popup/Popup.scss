@@ -1,34 +1,44 @@
+@import '../../mixins/themify.scss';
+
 .devices {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ffffff82;
   margin: 0;
   padding: 30px 0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include themify($themes) {
+    background-color: themed('backgroundPopupColor');
+  }
 }
+
 .devices__title {
   font-weight: 500;
   font-size: 23px;
   text-align: center;
 }
+
 .devices__scan {
   border-radius: 5px;
   overflow: hidden;
   width: 95%;
 }
-.devices__scan > div {
+
+.devices__scan>div {
   height: 4px;
   border-radius: 5px;
-  background: #7381a9;
   width: 50%;
   transform: translateX(0%);
   animation: scan 1s infinite linear;
+  @include themify($themes) {
+    background: themed('elementActiveColor');
+  }
 }
 
 .device:hover:after {
@@ -40,7 +50,9 @@
   bottom: -5px;
   left: -5px;
   border-radius: 12px;
-  border: 2px solid #7381a9;
+  @include themify($themes) {
+    border: 2px solid themed('elementActiveColor');
+  }
 }
 
 @keyframes scan {
