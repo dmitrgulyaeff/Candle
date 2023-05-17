@@ -2,8 +2,11 @@
   margin-top: 35px;
 }
 
+$height-input: 30px;
 .device {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 16px;
   border-radius: 10px;
   background: #fff;
@@ -11,17 +14,13 @@
   box-shadow: 0 10px 30px #ccd6e56b;
   cursor: pointer;
   position: relative;
+  font-size: $height-input;
 }
 
 .device__send {
-  flex-shrink: 0;
-  margin-left: auto;
   color: #7381a9;
-}
-
-.device__send>svg {
-  width: 20px;
-  height: 20px;
+  height: $height-input;
+  aspect-ratio: 1;
 }
 
 .device+.device {

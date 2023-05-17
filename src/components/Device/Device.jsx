@@ -8,8 +8,6 @@ function Device({ name = 'Неизвестно', handleClick }) {
       <div className="device__send">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="512"
-          height="512"
           x="0"
           y="0"
           viewBox="0 0 24 24"
