@@ -33,7 +33,7 @@ function Form({ handleSubmit }) {
           navigator.clipboard.readText().then(setAddress);
         }}
       >
-        Paste text
+        Вставить ссылку
       </button>
       <button type="submit" className="custom-url__submit-button">
         <svg
