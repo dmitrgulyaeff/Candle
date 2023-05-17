@@ -35,7 +35,7 @@ function ThemeToggler() {
   };
 
   return (
-    <button onClick={handleClick}>
+    <button className="theme-toggler" onClick={handleClick}>
       {darkModeOn !== null ? (darkModeOn ? '☀️' : '🌒') : '💀'}
     </button>
   );
