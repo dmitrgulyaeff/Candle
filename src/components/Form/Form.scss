@@ -20,6 +20,7 @@ $height : 50px;
   padding-right: $height;
 
   @include themify($themes) {
+    color: themed('textColor');
     background-color: themed('backgroundElement');
     box-shadow: themed('shadowAccent');
   }
@@ -64,9 +65,9 @@ $height : 50px;
   border-radius: 10px;
   border: 0;
   @include themify($themes) {
+    color: themed('textColor');
     background-color: themed('backgroundElement');
     box-shadow: themed('shadowAccent');
-
   }
 
   &:hover {

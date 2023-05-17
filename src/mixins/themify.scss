@@ -1,14 +1,24 @@
 $backgroundColorLight: #F9F9FB;
-
+$backgroundColorDark: #2b2a33;
 $themes: (
-  light: (backgroundColor: $backgroundColorLight,
+  light: (
+    backgroundColor: $backgroundColorLight,
     backgroundPopupColor: rgba($backgroundColorLight, 0.7),
     textColor: black,
     backgroundElement: #fff,
     elementActiveColor: #fbcf7ab0,
     shadowAccent: 0 1px 30px #E9E9EB,
+    logoOpacity: 1,
   ),
-  dark: (),
+  dark: (
+    backgroundColor: $backgroundColorDark,
+    backgroundPopupColor: rgba($backgroundColorDark, 0.7),
+    textColor: wheat,
+    backgroundElement: rgba(0, 0, 0, 0.284),
+    elementActiveColor: #c1ae885d,
+    shadowAccent: none,
+    logoOpacity: 0.9,
+  ),
 );
 
 

@@ -25,7 +25,12 @@ $height-input: 30px;
 
 .device__name {
   margin-left: 3px;
+
+  @include themify($themes) {
+    color: themed('textColor');
+  }
 }
+
 .device__send {
   height: $height-input;
   aspect-ratio: 1;

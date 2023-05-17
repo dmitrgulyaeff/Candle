@@ -1,5 +1,5 @@
 @import '../../mixins/responsive.scss';
-
+@import '../../mixins/themify.scss';
 
 .head {
   display: flex;
@@ -20,6 +20,10 @@
   @include responsive("mobile") {
     height: 80px;
   }
+
+  @include themify($themes) {
+    opacity: themed('logoOpacity');
+  }
 }
 
 .head__title {
@@ -28,5 +32,10 @@
   font-size: 70px;
   @include responsive("mobile") {
     font-size: 50px;
+  }
+  @include themify($themes) {
+    color: themed('textColor');
+    opacity: themed('logoOpacity');
+
   }
 }

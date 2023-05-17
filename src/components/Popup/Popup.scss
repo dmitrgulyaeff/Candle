@@ -22,6 +22,10 @@
   font-weight: 500;
   font-size: 23px;
   text-align: center;
+
+  @include themify($themes) {
+    color: themed('textColor');
+  }
 }
 
 .devices__scan {
@@ -36,6 +40,7 @@
   width: 50%;
   transform: translateX(0%);
   animation: scan 1s infinite linear;
+
   @include themify($themes) {
     background: themed('elementActiveColor');
   }
@@ -50,6 +55,7 @@
   bottom: -5px;
   left: -5px;
   border-radius: 12px;
+
   @include themify($themes) {
     border: 2px solid themed('elementActiveColor');
   }
