@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import './App.scss';
-import Header from './components/Header/Header';
-import Form from './components/Form/Form';
-import Popup from './components/Popup/Popup';
+import Header from '../Header/Header';
+import Form from '../Form/Form';
+import Popup from '../Popup/Popup';
+import ThemeToggler from '../ThemeToggler/ThemeToggler';
 
 function App() {
   const [popupOpened, setPopupOpened] = useState(false);
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <ThemeToggler />
       <Header />
       <Form handleSubmit={handleSubmit} />
       {popupOpened && <Popup setOpened={setPopupOpened} url={url} />}

@@ -1,20 +1,22 @@
+@import '../../mixins/themify.scss';
+
 * {
   box-sizing: border-box;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
-
-  color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
-body {
-  padding: 20px;
-  margin: 0;
-  min-width: 320px;
-  width: 100vw;
+#root {
   height: 100vh;
+  min-width: 320px;
+  @include themify($themes) {
+    background-color: themed('backgroundColor');  
+  }
+  // display: flex;
+  // flex-direction: column;
 }
