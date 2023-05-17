@@ -1,8 +1,12 @@
+@import '../../mixins/responsive.scss';
+
+
 .head {
   display: flex;
   gap: 15px;
   align-items: flex-end;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .head__image {
@@ -12,10 +16,17 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url('/favicon/favicon-196x196.png');
+
+  @include responsive("mobile") {
+    height: 80px;
+  }
 }
 
 .head__title {
   text-align: center;
   font-weight: 700;
   font-size: 70px;
+  @include responsive("mobile") {
+    font-size: 50px;
+  }
 }
