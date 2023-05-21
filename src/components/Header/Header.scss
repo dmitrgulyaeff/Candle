@@ -2,11 +2,22 @@
 @import '../../mixins/themify.scss';
 
 .head {
+  position: relative;
   display: flex;
   gap: 15px;
   align-items: flex-end;
   justify-content: center;
   margin-bottom: 15px;
+
+  @include responsive("mobile") {
+    gap: 5px; 
+  }
+}
+
+.head__theme-toggler {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .head__image {
@@ -18,7 +29,7 @@
   background-image: url('/favicon/favicon-196x196.png');
 
   @include responsive("mobile") {
-    height: 80px;
+    height: 60px;
   }
 
   @include themify($themes) {
@@ -30,9 +41,11 @@
   text-align: center;
   font-weight: 700;
   font-size: 70px;
+  
   @include responsive("mobile") {
-    font-size: 50px;
+    font-size: 40px;
   }
+
   @include themify($themes) {
     color: themed('textColor');
     opacity: themed('logoOpacity');

@@ -1,7 +1,13 @@
+@import '../../mixins/responsive.scss';
+
 .theme-toggler {
   padding: 10px;
   background-color: transparent;
   border: 0;
   font-size: 30px;
   cursor: pointer;
+
+  @include responsive("mobile") {
+    padding: 0;
+  }
 }

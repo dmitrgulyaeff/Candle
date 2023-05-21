@@ -3,7 +3,6 @@ import './App.scss';
 import Header from '../Header/Header';
 import Form from '../Form/Form';
 import Popup from '../Popup/Popup';
-import ThemeToggler from '../ThemeToggler/ThemeToggler';
 
 function App() {
   const [popupOpened, setPopupOpened] = useState(false);
@@ -17,7 +16,6 @@ function App() {
   return (
     <>
       <div className='wrapper'>
-        <ThemeToggler />
         <Header />
         <Form handleSubmit={handleSubmit} />
       </div>
