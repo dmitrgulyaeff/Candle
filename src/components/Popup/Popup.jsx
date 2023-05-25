@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import './Popup.scss';
 import { useEffect, useState } from 'react';
 import Device from '../Device/Device';
+import checkLink from '../../utils/checkLink';
 
 function Popup({ setOpened, url }) {
   const [devices, setDevices] = useState([]);
@@ -89,7 +90,7 @@ function Popup({ setOpened, url }) {
                 handleClick={() => {
                   const play = {
                     title: 'Candle',
-                    url: url,
+                    url: checkLink(url),
                   };
 
                   socket.send(
