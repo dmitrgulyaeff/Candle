@@ -19,14 +19,9 @@ function Form({ handleSubmit }) {
         placeholder="Введите адрес видео"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            handleSubmit(address);
-            setAddress('')
-          }
-        }}
       />
       <button
+        type="button"
         className="custom-url__paste-button"
         onClick={(e) => {
           e.preventDefault();
