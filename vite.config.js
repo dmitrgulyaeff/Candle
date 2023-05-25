@@ -14,6 +14,7 @@ export default defineConfig({
         short_name: 'Candle',
         start_url: '.',
         display: 'standalone',
+        "background_color": "#141726",
         description:
           'Candle is an application that allows you to stream video directly to the Lampa app via a link',
         icons: [
