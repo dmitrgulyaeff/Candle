@@ -1,6 +1,9 @@
 @import '../../mixins/themify.scss';
 @import '../../mixins/responsive.scss';
 
+body {
+  overflow: hidden;
+}
 
 * {
   box-sizing: border-box;
@@ -12,7 +15,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   outline: none;
-
 }
 
 #root {
