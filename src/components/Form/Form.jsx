@@ -19,6 +19,7 @@ function Form({ handleSubmit }) {
         placeholder="Введите адрес видео"
         value={address}
         onChange={(e) => setAddress(e.target.value)}
+        required
       />
       <button
         type="button"
