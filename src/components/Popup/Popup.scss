@@ -18,6 +18,10 @@
   }
 }
 
+.devices__list {
+  overflow-y: auto;
+}
+
 .devices__title {
   font-weight: 500;
   font-size: 23px;
