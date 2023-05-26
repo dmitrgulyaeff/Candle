@@ -23,6 +23,11 @@ export default defineConfig({
             sizes: '196x196',
             type: 'image/png',
           },
+          {
+            src: 'favicon/mstile-310x310.png',
+            sizes: '310x310',
+            type: 'image/png',
+          },
         ],
       },
     }),
