@@ -23,6 +23,21 @@ $height-input: 30px;
   }
 }
 
+.device:hover:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  border-radius: 12px;
+
+  @include themify($themes) {
+    border: 2px solid themed('elementActiveColor');
+  }
+}
+
 .device__name {
   margin-left: 3px;
 
