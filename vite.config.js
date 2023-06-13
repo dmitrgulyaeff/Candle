@@ -22,6 +22,7 @@ export default defineConfig({
             src: 'favicon/favicon-196x196.png',
             sizes: '196x196',
             type: 'image/png',
+            purpose: "any maskable",
           },
           {
             src: 'favicon/mstile-310x310.png',
