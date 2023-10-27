@@ -14,7 +14,7 @@ function Popup({ setOpened, url }) {
   };
 
   useEffect(() => {
-    const newSocket = new WebSocket('wss://cub.watch:8020');
+    const newSocket = new WebSocket('wss://cub.red:8010');
     setSocket(newSocket);
 
     newSocket.onmessage = (event) => {
